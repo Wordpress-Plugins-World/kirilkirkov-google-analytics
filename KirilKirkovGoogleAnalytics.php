@@ -16,12 +16,7 @@ use KirilKirkov\GoogleAnalytics\Config;
 if(!class_exists('KirilKirkovGoogleAnalytics')) {
 	class KirilKirkovGoogleAnalytics 
 	{
-		const GEO_LOCATION_API = 'http://ip-api.com/json/';
-
 		private static $instance;
-
-		private $guard_types = ['allowed', 'disallowed'];
-		private $default_guard_type = 'allowed';
 
 		private function __construct()
 		{
@@ -97,8 +92,7 @@ if(!class_exists('KirilKirkovGoogleAnalytics')) {
 			if($google_analytics_code !== '' 
 				&& !$this->is_excluded() 
 				&& !$this->is_disabled_for_ip() 
-				&& !$this->is_disabled_by_role()
-				&& !$this->is_disabled_by_country()) {
+				&& !$this->is_disabled_by_role()) {
 			?>
 				<!-- Global site tag (gtag.js) - Google Analytics -->
 				<script async src="https://www.googletagmanager.com/gtag/js?id=<?php esc_attr_e($google_analytics_code); ?>"></script>
@@ -155,71 +149,6 @@ if(!class_exists('KirilKirkovGoogleAnalytics')) {
 			}
 
 			return $ip;
-		}
-
-		/**
-		 * Check if user is in disabled country
-		 */
-		private function is_disabled_by_country()
-		{
-			// if has countries to check, contries list separated by comma
-			$guard_countries = get_option(Config::INPUTS_PREFIX.'guard_countries');
-			if($guard_countries) {
-
-				$user_country = strtolower($this->get_country_by_ip($this->get_visitor_ip()));
-				if($user_country === null) {
-					return false;
-				}
-
-				$guard_countries = explode(',', $guard_countries);
-				if(!count($guard_countries)) {
-					return false;
-				}
-
-				$guard_countries = array_map(function ($v) {
-					return trim(strtolower($v));
-				}, $guard_countries);
-	
-				// allowed/disallowed
-				$guard_type = get_option(Config::INPUTS_PREFIX.'guard_type');
-				if(!$guard_type || !in_array($guard_type, $this->guard_types)) {
-					$guard_type = $this->default_guard_type;
-				}
-	
-				if($guard_type === 'allowed' && !in_array($user_country, $guard_countries)) {
-					return true;
-				}
-				if($guard_type == 'disallowed' && in_array($user_country, $guard_countries)) {
-					return true;
-				}
-			}
-
-			return false;
-		}
-
-		/**
-		 * Get country through free third party api
-		 */
-		public static function get_country_by_ip($ip)
-		{
-			try {
-	
-				$json = file_get_contents(self::GEO_LOCATION_API.$ip);
-				$a = json_decode($json, true);
-				if(json_last_error() !== JSON_ERROR_NONE) {
-					return null;
-				}
-				if(!isset($a['status']) || $a['status'] !== 'success') {
-					return null;
-				}
-				if(!isset($a['country']) || trim($a['country']) === '') {
-					return null;
-				}
-				return $a['country'];
-	
-			} catch(\Exception $e) {
-				return null;
-			}
 		}
 
 		/**

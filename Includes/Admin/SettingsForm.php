@@ -126,29 +126,6 @@
                                 </td>
                             </tr>
 
-                            <tr valign="top">
-                                <th scope="row" class="align-middle">
-                                    <div class="th-div">
-                                        <span class="mr-5"><?php esc_html_e( 'Restriction by country', 'kirilkirkov-google-analytics' ); ?></span>
-                                        <a class="show-info" data-info="<?php esc_attr_e( 'List allowed or disallowed countries to which you wants to load google analytics. The country is taken on basis of the IP address. Allowed/Disallowed countries should be devided by comma. Eg. Greece,Italy (in English only)', 'kirilkirkov-google-analytics' ) ?>" href="javascript:;"></a>
-                                    </div>
-                                </th>
-                                <td>
-                                    <?php 
-                                        $guard_type = get_option($Config::INPUTS_PREFIX.'guard_type');
-                                    ?>
-                                    <div><label><?php esc_html_e( 'Restriction type', 'kirilkirkov-google-analytics' ); ?></label></div>
-                                    <select name="<?php esc_attr_e($Config::INPUTS_PREFIX); ?>guard_type">
-                                        <option <?php echo !$guard_type || ($guard_type && $guard_type === 'allowed') ? 'selected="selected"' : ''; ?> value="allowed"><?php esc_html_e( 'Allowed', 'kirilkirkov-google-analytics' ); ?></option>
-                                        <option <?php echo $guard_type && $guard_type === 'disallowed' ? 'selected="selected"' : ''; ?> value="disallowed"><?php esc_html_e( 'Disallowed', 'kirilkirkov-google-analytics' ); ?></option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <label><?php esc_html_e( 'Countries (one or multiple separated by comma)', 'kirilkirkov-google-analytics' ); ?></label>
-                                    <input type="text" placeholder="<?php esc_attr_e( 'Disabled until enter value', 'kirilkirkov-google-analytics' ); ?>" name="<?php esc_attr_e($Config::INPUTS_PREFIX); ?>guard_countries" value="<?php esc_attr_e(get_option( $Config::INPUTS_PREFIX.'guard_countries' )); ?>" />
-                                </td>
-                            </tr>
-
                             <input type="hidden" name="action" value="update" />
                             <input type="hidden" name="page_options" value="<?php esc_attr_e($Config::MAIN_UPDATE_OPTIONS); ?>" />
 

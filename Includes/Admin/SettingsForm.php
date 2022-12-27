@@ -143,6 +143,20 @@
                     <div class="ad-box p-4 flex flex-wrap items-center justify-between">
                         <a href="https://github.com/Wordpress-Plugins-World" class="accent-button w-full" target="_blank"><?php esc_html_e( 'Find Us', 'kirilkirkov-google-analytics' ); ?></a>
                     </div>
+
+                    <div class="ad-box mb-4 p-4 flex flex-wrap items-center justify-between">
+                        <p class="m-0 mb-4 text-center"><?php esc_html_e( 'Get Powerful WordPress Invoices Generator', 'kirilkirkov-spotify-search' ); ?></p>
+                        <a href="https://codecanyon.net/item/wp-invoices-pdf-electronic-invoicing-system/36891583" class="w-full" target="_blank">
+                            <img class="w-full" src="<?php echo plugins_url('Assets/Img/274x300.png', __FILE__ ); ?>" alt="<?php echo esc_attr( 'WordPress Invoices' ) ?>" />
+                        </a>
+                    </div>
+
+                    <div class="ad-box p-4 flex flex-wrap items-center justify-between">
+                        <p class="m-0 mb-4 text-center"><?php esc_html_e( 'Get Powerful Project Management System', 'kirilkirkov-wp-invoices' ); ?></p>
+                        <a href="https://codecanyon.net/item/agile-scrum-project-issue-management/36720961" class="w-full" target="_blank">
+                            <img class="w-full" src="<?php echo plugins_url('/Assets/Img/banner.jpg', __FILE__ ); ?>" alt="<?php echo esc_attr( 'Agile Scrum' ) ?>" />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

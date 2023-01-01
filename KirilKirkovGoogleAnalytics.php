@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Google Analytics
+Plugin Name: GA - Easy Google Analytics Integration
 Description: This plugin integrates google analytics code to your theme.
 Version: 1.0
 Author: Kiril Kirkov

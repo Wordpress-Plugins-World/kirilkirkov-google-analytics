@@ -140,7 +140,7 @@
 
             <div class="w-full md:w-1/4 ad-col">
                 <div class="p-4">
-                    <div class="ad-box p-4 flex flex-wrap items-center justify-between">
+                    <div class="ad-box p-4 mb-4 flex flex-wrap items-center justify-between">
                         <a href="https://github.com/Wordpress-Plugins-World" class="accent-button w-full" target="_blank"><?php esc_html_e( 'Find Us', 'kirilkirkov-google-analytics' ); ?></a>
                     </div>
 
